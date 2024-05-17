@@ -15,6 +15,11 @@ func TestFizzBuzz(t *testing.T) {
 			want: "1",
 		},
 		{
+			name: "should return '2' when given input equal '2'",
+			n:    2,
+			want: "2",
+		},
+		{
 			name: "should return 'Fizz' when given input equal '3'",
 			n:    3,
 			want: "Fizz",
