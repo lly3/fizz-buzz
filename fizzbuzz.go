@@ -11,5 +11,6 @@ func ternary(condition bool, a, b interface{}) interface{} {
 }
 
 func fizzbuzz(n int) string {
-	return fmt.Sprint(n)
+	s := fmt.Sprint(ternary(n%3 == 0, "Fizz", ""))
+	return fmt.Sprint(ternary(s == "", fmt.Sprint(n), s))
 }
