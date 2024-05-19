@@ -17,6 +17,13 @@ func TestTernary(t *testing.T) {
 			b:         "dummy b",
 			want:      "dummy a",
 		},
+		{
+			name:      "should return b when given contiditon false",
+			condition: false,
+			a:         "dummy a",
+			b:         "dummy b",
+			want:      "dummy b",
+		},
 	}
 
 	for _, c := range cases {
