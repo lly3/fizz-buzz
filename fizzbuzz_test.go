@@ -2,6 +2,31 @@ package fizzbuzz
 
 import "testing"
 
+func TestTernary(t *testing.T) {
+	cases := []struct {
+		name      string
+		condition bool
+		a         interface{}
+		b         interface{}
+		want      interface{}
+	}{
+		{
+			name:      "should return a value when given condition as true",
+			condition: true,
+			a:         "a",
+			b:         "b",
+			want:      "a",
+		},
+	}
+
+	for _, c := range cases {
+		got := ternary(c.condition, c.a, c.b)
+		if got != c.want {
+			t.Errorf("want: %v, got: %v", c.want, got)
+		}
+	}
+}
+
 func TestFizzBuzz(t *testing.T) {
 	cases := []struct {
 		name string
