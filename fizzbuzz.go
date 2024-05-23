@@ -15,16 +15,30 @@ func (f Fizz) Run(n int) string {
 	return ""
 }
 
-type FizzBuzz struct {
-	f Fizz
+type Buzz struct{}
+
+func NewBuzz() Buzz {
+	return Buzz{}
 }
 
-func NewFizzBuzz(f Fizz) FizzBuzz {
-	return FizzBuzz{f}
+func (b Buzz) Run(n int) string {
+	if n%5 == 0 {
+		return "Buzz"
+	}
+	return ""
+}
+
+type FizzBuzz struct {
+	f Fizz
+	b Buzz
+}
+
+func NewFizzBuzz(f Fizz, b Buzz) FizzBuzz {
+	return FizzBuzz{f, b}
 }
 
 func (fb FizzBuzz) Run(n int) string {
-	s := fb.f.Run(n)
+	s := fb.f.Run(n) + fb.b.Run(n)
 	if s == "" {
 		return fmt.Sprint(n)
 	}
@@ -33,6 +47,7 @@ func (fb FizzBuzz) Run(n int) string {
 
 func fizzbuzz(n int) string {
 	f := NewFizz()
-	fb := NewFizzBuzz(f)
+	b := NewBuzz()
+	fb := NewFizzBuzz(f, b)
 	return fb.Run(n)
 }
