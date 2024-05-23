@@ -30,6 +30,29 @@ func TestFizz(t *testing.T) {
 	}
 }
 
+func TestBuzz(t *testing.T) {
+	cases := []struct {
+		name string
+		n    int
+		want string
+	}{
+		{
+			name: "should return 'Buzz' when given the number that diviable by 5",
+			n:    5,
+			want: "Buzz",
+		},
+	}
+
+	b := NewBuzz()
+
+	for _, c := range cases {
+		got := b.Run(c.n)
+		if got != c.want {
+			t.Errorf("want: %v, got: %v", c.want, got)
+		}
+	}
+}
+
 func TestFizzBuzz(t *testing.T) {
 	cases := []struct {
 		name string
