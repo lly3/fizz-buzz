@@ -13,10 +13,17 @@ func TestFizz(t *testing.T) {
 			n:    3,
 			want: "Fizz",
 		},
+		{
+			name: "should return 'Fizz' when given the number that diviable by 3",
+			n:    2,
+			want: "",
+		},
 	}
 
+	f := NewFizz()
+
 	for _, c := range cases {
-		got := fizzbuzz(c.n)
+		got := f.Run(c.n)
 		if got != c.want {
 			t.Errorf("want: %v, got: %v", c.want, got)
 		}
