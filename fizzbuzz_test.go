@@ -41,6 +41,11 @@ func TestBuzz(t *testing.T) {
 			n:    5,
 			want: "Buzz",
 		},
+		{
+			name: "should return 'Buzz' when given the number that diviable by 5",
+			n:    2,
+			want: "",
+		},
 	}
 
 	b := NewBuzz()
