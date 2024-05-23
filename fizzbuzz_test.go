@@ -79,6 +79,11 @@ func TestFizzBuzz(t *testing.T) {
 			n:    5,
 			want: "Buzz",
 		},
+		{
+			name: "should return 'FizzBuzz' when given the number that can divide by 3 and 5",
+			n:    15,
+			want: "FizzBuzz",
+		},
 	}
 
 	for _, c := range cases {
